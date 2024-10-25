@@ -1,9 +1,15 @@
+import 'package:beauty_ecommerce/features/splash/presentation/screen/ui/splash_screen.dart';
 import 'package:flutter/material.dart';
 
-class AppRouting{
+import 'routes.dart';
 
-  Route? generateRoute(RouteSettings routesSettings){
-    switch(routesSettings.name){
+class AppRouting {
+  Route? generateRoute(RouteSettings routesSettings) {
+    switch (routesSettings.name) {
+      case Routes.splashScreen:
+        return MaterialPageRoute(
+          builder: (_) => SplashScreen(),
+        );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
