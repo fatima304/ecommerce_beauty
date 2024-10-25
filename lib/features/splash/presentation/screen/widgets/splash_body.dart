@@ -51,7 +51,7 @@ class _SplashBodyState extends State<SplashBody> {
           Center(
             child: Text(
               'Beauty' ,
-              style: AppTextStyle.font30WhiteBold.copyWith(
+              style: AppTextStyle.font80WhiteBold.copyWith(
                 fontFamily: FontFamilyHelper.rubikWetPaintRegularFont
               ),
             ),
