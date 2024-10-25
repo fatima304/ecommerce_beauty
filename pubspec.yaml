@@ -119,6 +119,16 @@ flutter:
           weight: 600
         - asset: assets/fonts/source_serif_4/SourceSerif4-Bold.ttf
           weight: 700
+    - family: League Spartan
+      fonts:
+        - asset: assets/fonts/league_spartan/LeagueSpartan-Medium.ttf
+          weight: 500
+        - asset: assets/fonts/league_spartan/LeagueSpartan-SemiBold.ttf
+          weight: 600
+    - family: Poppins
+      fonts:
+        - asset: assets/fonts/poppins/Poppins-Medium.ttf
+          weight: 500
   #       - asset: fonts/Schyler-Italic.ttf
   #         style: italic
   #   - family: Trajan Pro
