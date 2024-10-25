@@ -1,4 +1,5 @@
 import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_boarding_cubit.dart';
+import 'package:beauty_ecommerce/features/order_successful/presentation/screen/ui/order_successful_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -20,6 +21,10 @@ class AppRouting {
                 create: (context) => OnBoardingCubit()..loadOnBoardingScreen(),
                 child: OnBoardingScreen(),
               ),
+        );
+      case Routes.orderSuccessfulScreen:
+        return MaterialPageRoute(
+          builder: (_) => OrderSuccessfulScreen(),
         );
       default:
         return MaterialPageRoute(

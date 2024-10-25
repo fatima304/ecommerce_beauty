@@ -35,4 +35,21 @@ class AppTextStyle{
       fontWeight: FontWeightHelper.semiBold ,
       color: AppColor.mainPink
   );
+
+  static  TextStyle font32PinkSemiBold= TextStyle(
+      fontSize: 32.sp ,
+      fontWeight: FontWeightHelper.semiBold ,
+      color: AppColor.mainPink
+  );
+
+  static  TextStyle font24BlackMedium= TextStyle(
+      fontSize: 24.sp ,
+      fontWeight: FontWeightHelper.medium ,
+      color: Colors.black
+  );
+  static  TextStyle font20BlackSemiBold= TextStyle(
+      fontSize: 20.sp ,
+      fontWeight: FontWeightHelper.semiBold ,
+      color: Colors.black
+  );
 }
