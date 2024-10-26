@@ -7,6 +7,8 @@ import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_r
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
+import '../../../../../core/routes/routes.dart';
+
 
 class DetailsCard extends StatelessWidget {
   const DetailsCard({
@@ -51,7 +53,9 @@ class DetailsCard extends StatelessWidget {
                   ],
                 ),
                 CustomElevatedButton(
-                    onPressed: (){},
+                    onPressed: (){
+                      Navigator.of(context).pushNamed(Routes.cartBody);
+                    },
                     width: 0.w,
                     height: 0.h,
                     buttonText: 'Add To Cart'

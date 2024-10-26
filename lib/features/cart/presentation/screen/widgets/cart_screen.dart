@@ -41,7 +41,7 @@ class CartScreen extends StatelessWidget {
             Center(
                 child: CustomElevatedButton(
               onPressed: () {
-                Navigator.of(context).pushReplacementNamed(Routes.orderSuccessfulScreen);
+                Navigator.of(context).pushReplacementNamed(Routes.paymentScreen);
               },
               buttonText: 'Checkout',
             )),
