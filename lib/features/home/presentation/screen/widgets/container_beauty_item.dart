@@ -74,7 +74,7 @@ class ContainerBeautyItem extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: (){
-                    Navigator.of(context).pushNamed(Routes.detailsScreen);
+                    Navigator.of(context).pushNamed(Routes.detailsScreen , arguments: beautyProductModel);
                   },
                   child: Container(
                     padding:

@@ -98,4 +98,29 @@ class AppTextStyle{
       fontWeight: FontWeightHelper.medium ,
       color: AppColor.darkGrey
   );
+
+  static  TextStyle font28BlackBold= TextStyle(
+      fontSize: 28.sp ,
+      fontWeight: FontWeightHelper.bold ,
+      color: Colors.black
+  );
+
+  static  TextStyle font18BlackMedium= TextStyle(
+      fontSize: 18.sp ,
+      fontWeight: FontWeightHelper.medium ,
+      color: Colors.black
+  );
+
+  static  TextStyle font16DarkGreySemiBold= TextStyle(
+      fontSize: 16.sp ,
+      fontWeight: FontWeightHelper.semiBold,
+      color: Colors.grey
+  );
+
+  static  TextStyle font22BlackBold= TextStyle(
+      fontSize: 28.sp ,
+      fontWeight: FontWeightHelper.bold ,
+      color: Colors.black
+  );
+
 }

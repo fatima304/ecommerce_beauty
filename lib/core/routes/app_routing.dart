@@ -1,4 +1,5 @@
 import 'package:beauty_ecommerce/core/di/dependency_injection.dart';
+import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/presentation/manager/home_cubit.dart';
 import 'package:beauty_ecommerce/features/home/presentation/screen/ui/home_screen.dart';
 import 'package:beauty_ecommerce/features/login/presentation/screen/ui/login_screen.dart';
@@ -13,6 +14,7 @@ import 'routes.dart';
 
 class AppRouting {
   Route? generateRoute(RouteSettings routesSettings) {
+    final arguments = routesSettings.arguments;
     switch (routesSettings.name) {
       case Routes.splashScreen:
         return MaterialPageRoute(
@@ -24,10 +26,6 @@ class AppRouting {
             create: (context) => OnBoardingCubit()..loadOnBoardingScreen(),
             child: OnBoardingScreen(),
           ),
-        );
-        case Routes.detailsScreen:
-        return MaterialPageRoute(
-          builder: (_) => DetailsScreen(),
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
@@ -46,6 +44,13 @@ class AppRouting {
           builder: (_) => BlocProvider(
             create: (context) => getIt<HomeCubit>(),
             child: HomeScreen(),
+          ),
+        );
+      case Routes.detailsScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<HomeCubit>(),
+            child: DetailsScreen(beautyProductModelResponse: arguments as BeautyProductModelResponse,),
           ),
         );
       default:

@@ -1,71 +1,65 @@
-import 'package:beauty_ecommerce/core/theme/font_weight_helper.dart';
+import 'package:beauty_ecommerce/core/theme/app_color.dart';
+import 'package:beauty_ecommerce/core/theme/app_text_style.dart';
+import 'package:beauty_ecommerce/core/widgets/custom_elevated_button.dart';
 import 'package:beauty_ecommerce/features/details/presentation/screen/widgets/color_palette.dart';
 import 'package:beauty_ecommerce/features/details/presentation/screen/widgets/product_details.dart';
+import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_screenutil/flutter_screenutil.dart';
+
 
 class DetailsCard extends StatelessWidget {
   const DetailsCard({
-    super.key,
+    super.key, required this.beautyProductModelResponse,
   });
+
+  final BeautyProductModelResponse beautyProductModelResponse;
 
   @override
   Widget build(BuildContext context) {
     return Container(
       width: double.infinity,
       height: MediaQuery.of(context).size.height * 0.45,
-      padding: EdgeInsets.symmetric(horizontal: 16, vertical: 20),
+      padding: EdgeInsets.symmetric(horizontal: 16.w, vertical: 12.h),
       decoration: BoxDecoration(
-        color: Color(0xFFE3F6E8),
+        color: AppColor.cherryBlossomPink,
         borderRadius: BorderRadius.circular(36),
       ),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          ProductDetails(),
-          SizedBox(height: 25),
-          ColorPalette(),
-          SizedBox(height: 30),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              Column(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    "Price",
-                    style: TextStyle(
-                      fontWeight: FontWeightHelper.light,
-                      fontSize: 18,
-                      color: Colors.black,
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            ProductDetails(beautyProductModelResponse: beautyProductModelResponse,),
+            SizedBox(height: 25.h),
+            ColorPalette(beautyProductModelResponse: beautyProductModelResponse,),
+            SizedBox(height: 30.h),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      "Price",
+                      style: AppTextStyle.font16DarkGreySemiBold
                     ),
-                  ),
-                  Text(
-                    "\$40.99",
-                    style: TextStyle(
-                      fontSize: 22,
-                      fontWeight: FontWeightHelper.semiBold,
+                    Text(
+                      "\$ ${beautyProductModelResponse.price}",
+                      style: AppTextStyle.font22BlackSemiBold
                     ),
-                  ),
-                ],
-              ),
-              ElevatedButton(
-                onPressed: () {},
-                style: ElevatedButton.styleFrom(
-                  // primary: Colors.green.shade800,
-                  padding: EdgeInsets.symmetric(horizontal: 40, vertical: 12),
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(12),
-                  ),
+                  ],
                 ),
-                child: Text(
-                  "Add to Cart",
-                  style: TextStyle(fontSize: 18),
+                CustomElevatedButton(
+                    onPressed: (){},
+                    width: 0.w,
+                    height: 0.h,
+                    buttonText: 'Add To Cart'
                 ),
-              ),
-            ],
-          ),
-        ],
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

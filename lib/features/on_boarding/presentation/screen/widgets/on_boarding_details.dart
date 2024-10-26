@@ -28,7 +28,7 @@ class OnBoardingDetails extends StatelessWidget {
               child: GestureDetector(
                 onTap: () {
                   Navigator.of(context)
-                      .pushReplacementNamed(Routes.detailsScreen);
+                      .pushReplacementNamed(Routes.loginScreen);
                 },
                 child: Text(
                   'Skip',
