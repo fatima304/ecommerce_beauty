@@ -20,4 +20,13 @@ class HomeRepo{
     }
   }
 
+  Future<Either<ErrorHandler , List<BeautyProductModelResponse>>> searchUsingProductType (Map<String , dynamic> queries)async{
+    try{
+      List<BeautyProductModelResponse> beautyProducts = await _apiMakeupServices.searchUsingProductType(queries);
+      return Right(beautyProducts);
+    }catch(error){
+      return Left(ErrorHandler.handle(error));
+    }
+  }
+
 }
