@@ -26,8 +26,9 @@ class OnBoardingDetails extends StatelessWidget {
             Align(
               alignment: AlignmentDirectional.topEnd,
               child: GestureDetector(
-                onTap: (){
-                  Navigator.of(context).pushReplacementNamed(Routes.loginScreen);
+                onTap: () {
+                  Navigator.of(context)
+                      .pushReplacementNamed(Routes.detailsScreen);
                 },
                 child: Text(
                   'Skip',
@@ -70,23 +71,23 @@ class OnBoardingDetails extends StatelessWidget {
               children: [
                 ThreeCircle(),
                 GestureDetector(
-                  onTap: cubit.currentPageIndex == 2 ?
-                      (){
-                    Navigator.of(context).pushReplacementNamed(Routes.loginScreen);
-                      } :
-                      (){
-                        cubit.pageController.animateToPage(
-                          cubit.currentPageIndex + 1,
-                          duration: Duration(milliseconds: 300),
-                          curve: Curves.easeIn,
-                        );
-                    cubit.onNextButton();
-                      },
+                  onTap: cubit.currentPageIndex == 2
+                      ? () {
+                          Navigator.of(context)
+                              .pushReplacementNamed(Routes.loginScreen);
+                        }
+                      : () {
+                          cubit.pageController.animateToPage(
+                            cubit.currentPageIndex + 1,
+                            duration: Duration(milliseconds: 300),
+                            curve: Curves.easeIn,
+                          );
+                          cubit.onNextButton();
+                        },
                   child: Text(
-                    cubit.currentPageIndex == 2 ? 'Get Start' : 'Next' ,
-                    style: AppTextStyle.font18PinkSemiBold.copyWith(
-                      fontFamily: FontFamilyHelper.mulishFont
-                  ),
+                    cubit.currentPageIndex == 2 ? 'Get Start' : 'Next',
+                    style: AppTextStyle.font18PinkSemiBold
+                        .copyWith(fontFamily: FontFamilyHelper.mulishFont),
                   ),
                 )
               ],
