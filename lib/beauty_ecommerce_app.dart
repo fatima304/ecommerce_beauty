@@ -15,7 +15,7 @@ class BeautyEcommerceApp extends StatelessWidget {
         child:  MaterialApp(
           debugShowCheckedModeBanner: false ,
           onGenerateRoute: appRouting.generateRoute,
-          initialRoute: Routes.orderSuccessfulScreen,
+          initialRoute: Routes.homeScreen,
         ),
     );
   }
