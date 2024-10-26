@@ -107,6 +107,10 @@ flutter:
       fonts:
         - asset: assets/fonts/RubikWetPaint-Regular.ttf
           weight: 700
+    - family: Dongle
+      fonts:
+        - asset: assets/fonts/Dongle/Dongle-Light.ttf
+          weight: 300
     - family: Mulish
       fonts:
         - asset: assets/fonts/mulish/Mulish-Black.ttf
