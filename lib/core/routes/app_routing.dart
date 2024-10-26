@@ -1,4 +1,5 @@
 import 'package:beauty_ecommerce/core/di/dependency_injection.dart';
+import 'package:beauty_ecommerce/features/favourite/presentation/screen/widgets/favourite_body.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/presentation/manager/home_cubit.dart';
 import 'package:beauty_ecommerce/features/home/presentation/screen/ui/home_screen.dart';
@@ -52,6 +53,10 @@ class AppRouting {
             create: (context) => getIt<HomeCubit>(),
             child: DetailsScreen(beautyProductModelResponse: arguments as BeautyProductModelResponse,),
           ),
+        );
+      case Routes.favouriteScreen:
+        return MaterialPageRoute(
+          builder: (_) => FavouriteBody(),
         );
       default:
         return MaterialPageRoute(
