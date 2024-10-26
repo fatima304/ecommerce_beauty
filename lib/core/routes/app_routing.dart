@@ -1,4 +1,5 @@
-import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_boarding_cubit.dart';
+import 'package:beauty_ecommerce/features/login/presentation/screen/ui/login_screen.dart';
+ import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -15,20 +16,26 @@ class AppRouting {
         );
       case Routes.onBoardingScreen:
         return MaterialPageRoute(
-          builder: (_) =>
-              BlocProvider(
-                create: (context) => OnBoardingCubit()..loadOnBoardingScreen(),
-                child: OnBoardingScreen(),
-              ),
+          builder: (_) => BlocProvider(
+            create: (context) => OnBoardingCubit()..loadOnBoardingScreen(),
+            child: OnBoardingScreen(),
+          ),
+        );
+      case Routes.loginScreen:
+        return MaterialPageRoute(
+          builder: (_) => LoginScreen(),
+        );
+         case Routes.registerScreen:
+        return MaterialPageRoute(
+          builder: (_) => LoginScreen(),
         );
       default:
         return MaterialPageRoute(
-          builder: (_) =>
-              Scaffold(
-                body: Center(
-                  child: Text('No route defined for ${routesSettings.name}'),
-                ),
-              ),
+          builder: (_) => Scaffold(
+            body: Center(
+              child: Text('No route defined for ${routesSettings.name}'),
+            ),
+          ),
         );
     }
   }
