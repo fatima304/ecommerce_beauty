@@ -2,7 +2,7 @@
 import 'package:beauty_ecommerce/features/home/presentation/screen/ui/home_screen.dart';
 import 'package:beauty_ecommerce/features/login/presentation/screen/ui/login_screen.dart';
 import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_boarding_cubit.dart';
-import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_boarding_cubit.dart';
+import 'package:beauty_ecommerce/features/details/presentation/screen/ui/details_screen.dart';
 import 'package:beauty_ecommerce/features/order_successful/presentation/screen/ui/order_successful_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -23,6 +23,10 @@ class AppRouting {
             create: (context) => OnBoardingCubit()..loadOnBoardingScreen(),
             child: OnBoardingScreen(),
           ),
+        );
+        case Routes.detailsScreen:
+        return MaterialPageRoute(
+          builder: (_) => DetailsScreen(),
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
