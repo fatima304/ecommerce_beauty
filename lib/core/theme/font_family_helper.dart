@@ -6,4 +6,5 @@ class FontFamilyHelper{
   static const String leagueSpartanFont ='League Spartan';
   static const String poppinsFont ='Poppins';
   static const String k2dFont ='K2D';
+  static const String dongleFont = 'Dongle';
 }
