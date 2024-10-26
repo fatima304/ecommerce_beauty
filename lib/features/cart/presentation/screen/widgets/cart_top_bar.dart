@@ -4,8 +4,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/theme/app_color.dart';
 import '../../../../../core/theme/app_text_style.dart';
 
-class FavouriteTopBar extends StatelessWidget {
-  const FavouriteTopBar({super.key});
+class CartTopBar extends StatelessWidget {
+  const CartTopBar({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +30,7 @@ class FavouriteTopBar extends StatelessWidget {
           ),
         ),
         Text(
-            'Favourite',
+            'Cart',
             style: AppTextStyle.font20BlackSemiBold
         ),
         SizedBox(),

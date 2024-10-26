@@ -123,4 +123,9 @@ class AppTextStyle{
       color: Colors.black
   );
 
+  static  TextStyle font16PinkMedium= TextStyle(
+      fontSize: 16.sp ,
+      fontWeight: FontWeightHelper.medium,
+      color: AppColor.mainPink
+  );
 }
