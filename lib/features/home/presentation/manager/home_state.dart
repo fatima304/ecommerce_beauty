@@ -16,4 +16,9 @@ class HomeBeautyProductFailed extends HomeState {
 
   HomeBeautyProductFailed({required this.error});
 }
+class HomeChangeFavourite extends HomeState {
+  final List<BeautyProductModelResponse>  beautyList ;
+
+  HomeChangeFavourite({required this.beautyList});
+}
 

@@ -4,6 +4,7 @@ import 'package:beauty_ecommerce/core/theme/app_color.dart';
 import 'package:beauty_ecommerce/core/theme/app_text_style.dart';
 import 'package:beauty_ecommerce/core/theme/font_family_helper.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
+import 'package:beauty_ecommerce/features/home/presentation/manager/home_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -11,12 +12,13 @@ class ContainerBeautyItem extends StatelessWidget {
   const ContainerBeautyItem({super.key, required this.beautyProductModel});
 
   final BeautyProductModelResponse beautyProductModel;
+
   @override
   Widget build(BuildContext context) {
-    return   Padding(
-      padding:  EdgeInsets.symmetric(
-        vertical: 8.h
-      ),
+    var homeCubit = HomeCubit.get(context);
+    bool isFav = homeCubit.favProduct.contains(beautyProductModel);
+    return Padding(
+      padding: EdgeInsets.symmetric(vertical: 8.h),
       child: Container(
         width: 241.w,
         padding: EdgeInsets.symmetric(horizontal: 15.w, vertical: 11.h),
@@ -36,7 +38,7 @@ class ContainerBeautyItem extends StatelessWidget {
           children: [
             Center(
               child: Image.network(
-                        beautyProductModel.imageLink ?? AppImages.makeupFake,
+                beautyProductModel.imageLink ?? AppImages.makeupFake,
                 width: 150.w,
                 height: 120.h,
                 errorBuilder: (context, error, stackTrace) {
@@ -51,7 +53,8 @@ class ContainerBeautyItem extends StatelessWidget {
             ),
             Spacer(),
             Text(
-              beautyProductModel.name.trim() // Remove leading and trailing spaces
+              beautyProductModel.name
+                  .trim() // Remove leading and trailing spaces
                   .replaceAll(RegExp(r'\s+'), ' '),
               overflow: TextOverflow.ellipsis,
               maxLines: 2,
@@ -73,8 +76,9 @@ class ContainerBeautyItem extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 GestureDetector(
-                  onTap: (){
-                    Navigator.of(context).pushNamed(Routes.detailsScreen , arguments: beautyProductModel);
+                  onTap: () {
+                    Navigator.of(context).pushNamed(Routes.detailsScreen,
+                        arguments: beautyProductModel);
                   },
                   child: Container(
                     padding:
@@ -92,12 +96,17 @@ class ContainerBeautyItem extends StatelessWidget {
                     ),
                   ),
                 ),
-                CircleAvatar(
-                  backgroundColor: AppColor.cherryBlossomPink,
-                  child: Icon(
-                    Icons.favorite_border,
-                    size: 30,
-                    color: Colors.black,
+                GestureDetector(
+                  onTap: () {
+                    homeCubit.changeFav(beautyProductModel);
+                  },
+                  child: CircleAvatar(
+                    backgroundColor: AppColor.cherryBlossomPink,
+                    child: Icon(
+                       isFav ? Icons.favorite : Icons.favorite_border,
+                      size: 30,
+                      color: isFav ? Colors.red : Colors.black,
+                    ),
                   ),
                 ),
               ],
