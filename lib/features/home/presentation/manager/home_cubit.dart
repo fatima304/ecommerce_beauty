@@ -13,6 +13,7 @@ class HomeCubit extends Cubit<HomeState> {
   static HomeCubit get(context) => BlocProvider.of(context);
   final HomeRepo homeRepo;
 
+  TextEditingController searchController = TextEditingController();
   final List<String> brandNames = ['Maybelline', 'Milani', 'Dior','Fenty', 'Clinique' , 'L\'oreal'  , 'Colourpop'];
 
   int currentIndex = 0;
@@ -22,6 +23,7 @@ class HomeCubit extends Cubit<HomeState> {
     getProductByBrand(brandNames[currentIndex]);
     emit(HomeChangeBrandIndex());
   }
+
   void getProductByBrand(String brand) async {
     emit(HomeBeautyProductLoading()); // Emit loading state
     var products = await homeRepo.getProduct(brand);
@@ -30,6 +32,24 @@ class HomeCubit extends Cubit<HomeState> {
         emit(HomeBeautyProductFailed(error: error.apiErrorModel.message ?? ''));
       },
       (beautyProductList) {
+        emit(HomeBeautyProductSuccess(beautyProductList: beautyProductList));
+      },
+    );
+  }
+
+  void searchUsingProductType()async{
+    emit(HomeBeautyProductLoading()); // Emit loading state
+    var products = await homeRepo.searchUsingProductType(
+        {
+          'brand' : brandNames[currentIndex] ,
+          'product_type' : searchController.text
+        }
+    );
+    products.fold(
+          (error) {
+        emit(HomeBeautyProductFailed(error: error.apiErrorModel.message ?? ''));
+      },
+          (beautyProductList) {
         emit(HomeBeautyProductSuccess(beautyProductList: beautyProductList));
       },
     );

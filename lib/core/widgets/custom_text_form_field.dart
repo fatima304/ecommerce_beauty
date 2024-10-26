@@ -12,7 +12,7 @@ class CustomTextFormField extends StatelessWidget {
      this.prefixIcon,
     this.fillColor,
     this.height,
-    this.suffixIcon, this.hintStyle,
+    this.suffixIcon, this.hintStyle, this.onChanged, this.controller, this.onTap,
 
   });
 
@@ -23,11 +23,17 @@ class CustomTextFormField extends StatelessWidget {
   final double? height;
   final Widget? suffixIcon;
   final TextStyle? hintStyle;
+  final void Function(String)? onChanged;
+  final TextEditingController? controller;
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
     return Column(
       children: [
         TextFormField(
+          controller: controller,
+          onChanged: onChanged,
+          onTap:onTap ,
           decoration: InputDecoration(
             fillColor: fillColor ?? AppColor.lightGrey,
             filled: true,

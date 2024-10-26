@@ -14,4 +14,9 @@ abstract class ApiMakeupServices{
   Future<List<BeautyProductModelResponse>> getProduct(
       @Query('brand') String brand,
       );
+
+  @GET(ApiConstants.productEndPoint)
+  Future<List<BeautyProductModelResponse>> searchUsingProductType(
+      @Queries() Map<String , dynamic> queries ,
+      );
 }
