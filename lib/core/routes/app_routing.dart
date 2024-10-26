@@ -1,3 +1,4 @@
+import 'package:beauty_ecommerce/features/details/presentation/screen/ui/details_screen.dart';
 import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_boarding_cubit.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,6 +21,10 @@ class AppRouting {
                 create: (context) => OnBoardingCubit()..loadOnBoardingScreen(),
                 child: OnBoardingScreen(),
               ),
+        );
+        case Routes.detailsScreen:
+        return MaterialPageRoute(
+          builder: (_) => DetailsScreen(),
         );
       default:
         return MaterialPageRoute(
