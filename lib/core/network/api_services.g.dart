@@ -24,12 +24,12 @@ class _ApiMakeupServices implements ApiMakeupServices {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<BeautyProductModelResponse> getProduct(String brand) async {
+  Future<List<BeautyProductModelResponse>> getProduct(String brand) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{r'brand': brand};
     final _headers = <String, dynamic>{};
     const Map<String, dynamic>? _data = null;
-    final _options = _setStreamType<BeautyProductModelResponse>(Options(
+    final _options = _setStreamType<List<BeautyProductModelResponse>>(Options(
       method: 'GET',
       headers: _headers,
       extra: _extra,
@@ -45,10 +45,13 @@ class _ApiMakeupServices implements ApiMakeupServices {
           _dio.options.baseUrl,
           baseUrl,
         )));
-    final _result = await _dio.fetch<Map<String, dynamic>>(_options);
-    late BeautyProductModelResponse _value;
+    final _result = await _dio.fetch<List<dynamic>>(_options);
+    late List<BeautyProductModelResponse> _value;
     try {
-      _value = BeautyProductModelResponse.fromJson(_result.data!);
+      _value = _result.data!
+          .map((dynamic i) =>
+              BeautyProductModelResponse.fromJson(i as Map<String, dynamic>))
+          .toList();
     } on Object catch (e, s) {
       errorLogger?.logError(e, s, _options);
       rethrow;

@@ -10,12 +10,12 @@ class LoginTextfield extends StatelessWidget {
       children: [
         CustomTextFormField(
           hintText: 'Full Name',
-          preficIcon: Icons.person,
+          prefixIcon: Icons.person,
         ),
        
         CustomTextFormField(
           hintText: 'Password',
-          preficIcon: Icons.lock,
+          prefixIcon: Icons.lock,
         ),
       ],
     );
