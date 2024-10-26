@@ -1,4 +1,7 @@
 class ApiConstants {
+
+  static const String makeupBaseUrl = 'https://makeup-api.herokuapp.com/api/v1/';
+  static const String productEndPoint ='products.json';
 }
 
 class ApiErrors {

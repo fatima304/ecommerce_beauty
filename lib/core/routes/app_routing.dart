@@ -1,4 +1,5 @@
-
+import 'package:beauty_ecommerce/core/di/dependency_injection.dart';
+import 'package:beauty_ecommerce/features/home/presentation/manager/home_cubit.dart';
 import 'package:beauty_ecommerce/features/home/presentation/screen/ui/home_screen.dart';
 import 'package:beauty_ecommerce/features/login/presentation/screen/ui/login_screen.dart';
 import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_boarding_cubit.dart';
@@ -32,7 +33,7 @@ class AppRouting {
         return MaterialPageRoute(
           builder: (_) => LoginScreen(),
         );
-         case Routes.registerScreen:
+      case Routes.registerScreen:
         return MaterialPageRoute(
           builder: (_) => LoginScreen(),
         );
@@ -42,7 +43,10 @@ class AppRouting {
         );
       case Routes.homeScreen:
         return MaterialPageRoute(
-          builder: (_) => HomeScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<HomeCubit>(),
+            child: HomeScreen(),
+          ),
         );
       default:
         return MaterialPageRoute(

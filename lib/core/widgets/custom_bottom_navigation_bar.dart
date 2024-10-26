@@ -3,8 +3,10 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
-  const CustomBottomNavigationBar({super.key});
+  const CustomBottomNavigationBar({super.key, required this.currentIndex,required this.onTap});
 
+  final int currentIndex;
+  final void Function(int) onTap;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -16,8 +18,8 @@ class CustomBottomNavigationBar extends StatelessWidget {
             canvasColor: AppColor.cherryBlossomPink,
           ),
           child: BottomNavigationBar(
-              currentIndex: 0,
-              onTap: (index) {},
+              currentIndex: currentIndex,
+              onTap: onTap,
               unselectedFontSize: 0.sp,
               unselectedItemColor: Colors.black,
               unselectedIconTheme: IconThemeData(

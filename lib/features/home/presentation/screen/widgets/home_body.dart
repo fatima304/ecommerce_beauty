@@ -1,9 +1,10 @@
 import 'package:beauty_ecommerce/core/helper/app_images.dart';
 import 'package:beauty_ecommerce/core/theme/app_text_style.dart';
 import 'package:beauty_ecommerce/core/theme/font_family_helper.dart';
-import 'package:beauty_ecommerce/features/home/presentation/screen/widgets/beauty_items_list_view.dart';
+import 'package:beauty_ecommerce/features/home/presentation/screen/widgets/beauty_items_bloc_builder.dart';
 import 'package:beauty_ecommerce/features/home/presentation/screen/widgets/brand_items_list_view.dart';
 import 'package:beauty_ecommerce/features/home/presentation/screen/widgets/container_offer.dart';
+import 'package:beauty_ecommerce/features/home/presentation/screen/widgets/home_search.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
@@ -24,12 +25,9 @@ class HomeBody extends StatelessWidget {
             Center(
               child: Image.asset(
                 AppImages.beautyLogo,
-                width: 120.w,
-                height: 120.h,
+                width: 100.w,
+                height: 100.h,
               ),
-            ),
-            SizedBox(
-              height: 23.h,
             ),
             Text(
               "Let's make your \nown beauty",
@@ -37,10 +35,11 @@ class HomeBody extends StatelessWidget {
                   .copyWith(fontFamily: FontFamilyHelper.k2dFont),
             ),
             SizedBox(
-              height: 17.h,
+              height: 15.h,
             ),
+            HomeSearch(),
             SizedBox(
-              height: 14.h,
+              height: 15.h,
             ),
             ContainerOffer(),
             SizedBox(
@@ -50,7 +49,7 @@ class HomeBody extends StatelessWidget {
             SizedBox(
               height: 12.h,
             ),
-            BeautyItemsListView(),
+            BeautyItemsBlocBuilder(),
           ],
         ),
       ),

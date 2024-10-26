@@ -10,19 +10,19 @@ class RegisterTextfield extends StatelessWidget {
       children: [
         CustomTextFormField(
           hintText: 'Full Name',
-          preficIcon: Icons.person,
+          prefixIcon: Icons.person,
         ),
         CustomTextFormField(
           hintText: 'Email',
-          preficIcon: Icons.email,
+          prefixIcon: Icons.email,
         ),
         CustomTextFormField(
           hintText: 'Password',
-          preficIcon: Icons.lock,
+          prefixIcon: Icons.lock,
         ),
         CustomTextFormField(
           hintText: 'Confirm Password',
-          preficIcon: Icons.lock,
+          prefixIcon: Icons.lock,
         ),
       ],
     );

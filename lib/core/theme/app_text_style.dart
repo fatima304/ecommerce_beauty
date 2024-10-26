@@ -82,7 +82,7 @@ class AppTextStyle{
       color: AppColor.mainPink
   );
 
-  static  TextStyle font24BlackSemiBold= TextStyle(
+  static  TextStyle font22BlackSemiBold= TextStyle(
       fontSize: 24.sp ,
       fontWeight: FontWeightHelper.semiBold ,
       color: Colors.black
@@ -92,5 +92,10 @@ class AppTextStyle{
       fontSize: 16.sp ,
       fontWeight: FontWeightHelper.semiBold ,
       color: Colors.white
+  );
+  static  TextStyle font20DarkGreyMedium= TextStyle(
+      fontSize: 20.sp ,
+      fontWeight: FontWeightHelper.medium ,
+      color: AppColor.darkGrey
   );
 }
