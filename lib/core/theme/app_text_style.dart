@@ -52,4 +52,45 @@ class AppTextStyle{
       fontWeight: FontWeightHelper.semiBold ,
       color: Colors.black
   );
+  static  TextStyle font24PinkBold= TextStyle(
+      fontSize: 24.sp ,
+      fontWeight: FontWeightHelper.bold ,
+      color: AppColor.mainPink
+  );
+
+  static  TextStyle font32PinkMedium= TextStyle(
+      fontSize: 32.sp ,
+      fontWeight: FontWeightHelper.medium ,
+      color: AppColor.mainPink
+  );
+
+  static  TextStyle font14BlackRegular= TextStyle(
+      fontSize: 14.sp ,
+      fontWeight: FontWeightHelper.regular ,
+      color: Colors.black
+  );
+
+  static  TextStyle font14WhiteSemiBold= TextStyle(
+      fontSize: 14.sp ,
+      fontWeight: FontWeightHelper.semiBold ,
+      color: Colors.white
+  );
+
+  static  TextStyle font14PinkSemiBold= TextStyle(
+      fontSize: 14.sp ,
+      fontWeight: FontWeightHelper.semiBold ,
+      color: AppColor.mainPink
+  );
+
+  static  TextStyle font24BlackSemiBold= TextStyle(
+      fontSize: 24.sp ,
+      fontWeight: FontWeightHelper.semiBold ,
+      color: Colors.black
+  );
+
+  static  TextStyle font16WhiteSemiBold= TextStyle(
+      fontSize: 16.sp ,
+      fontWeight: FontWeightHelper.semiBold ,
+      color: Colors.white
+  );
 }
