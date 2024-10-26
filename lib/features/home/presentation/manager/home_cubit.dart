@@ -3,6 +3,7 @@ import 'package:beauty_ecommerce/features/favourite/presentation/screen/widgets/
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/data/repo/home_repo.dart';
 import 'package:beauty_ecommerce/features/home/presentation/screen/widgets/home_body.dart';
+import 'package:beauty_ecommerce/features/profile/presentation/screen/ui/profile_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -69,7 +70,7 @@ List<Widget> screens =[
   HomeBody(),
 CartScreen(),
   FavouriteBody(),
-  Center(child: Text('Fourth'),),
+  ProfileScreen(),
 ];
 
 
