@@ -3,12 +3,16 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 class CustomBottomNavigationBar extends StatelessWidget {
-  const CustomBottomNavigationBar({super.key, required this.currentIndex,required this.onTap});
+  const CustomBottomNavigationBar(
+      {super.key, required this.currentIndex, required this.onTap});
 
   final int currentIndex;
   final void Function(int) onTap;
+
   @override
   Widget build(BuildContext context) {
+
+
     return Padding(
       padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
       child: ClipRRect(
@@ -20,30 +24,29 @@ class CustomBottomNavigationBar extends StatelessWidget {
           child: BottomNavigationBar(
               currentIndex: currentIndex,
               onTap: onTap,
-              unselectedFontSize: 0.sp,
               unselectedItemColor: Colors.black,
               unselectedIconTheme: IconThemeData(
-                size: 30.sp,
+                size: 30,
               ),
               items: [
                 BottomNavigationBarItem(
                   icon: Icon(Icons.home_outlined),
                   label: '',
-                  activeIcon: activeColor(Icons.home),
+                  activeIcon: activeIcon(Icons.home),
                 ),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.shopping_cart_outlined),
                   label: '',
-                  activeIcon: activeColor(Icons.shopping_cart),
+                  activeIcon: activeIcon(Icons.shopping_cart),
                 ),
                 BottomNavigationBarItem(
                     icon: Icon(Icons.favorite_border_outlined),
                     label: '',
-                    activeIcon: activeColor(Icons.favorite)),
+                    activeIcon: activeIcon(Icons.favorite)),
                 BottomNavigationBarItem(
                   icon: Icon(Icons.person_2_outlined),
                   label: '',
-                  activeIcon: activeColor(Icons.person),
+                  activeIcon: activeIcon(Icons.person),
                 ),
               ]),
         ),
@@ -51,7 +54,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
     );
   }
 
-  Widget activeColor(IconData icon) {
+  Widget activeIcon(IconData icon) {
     return Padding(
       padding: EdgeInsets.only(top: 10.h),
       child: Container(
@@ -62,7 +65,7 @@ class CustomBottomNavigationBar extends StatelessWidget {
         padding: EdgeInsets.symmetric(horizontal: 8.w, vertical: 8.h),
         child: Icon(
           icon,
-          size: 30.sp,
+          size: 30,
           color: Colors.white,
         ),
       ),
