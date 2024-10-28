@@ -1,18 +1,19 @@
 import 'package:beauty_ecommerce/core/di/dependency_injection.dart';
-import 'package:beauty_ecommerce/features/cart/presentation/screen/widgets/cart_screen.dart';
+import 'package:beauty_ecommerce/features/cart/presentation/screen/widgets/cart_body.dart';
 import 'package:beauty_ecommerce/features/favourite/presentation/screen/widgets/favourite_body.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/presentation/manager/home_cubit.dart';
 import 'package:beauty_ecommerce/features/home/presentation/screen/ui/home_screen.dart';
-import 'package:beauty_ecommerce/features/home/presentation/screen/widgets/home_body.dart';
 import 'package:beauty_ecommerce/features/login/presentation/screen/ui/login_screen.dart';
 import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_boarding_cubit.dart';
 import 'package:beauty_ecommerce/features/details/presentation/screen/ui/details_screen.dart';
 import 'package:beauty_ecommerce/features/order_successful/presentation/screen/ui/order_successful_screen.dart';
-import 'package:beauty_ecommerce/features/payment/presentation/screen/ui/payment_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import '../../features/cart/presentation/screen/ui/cart_screen.dart';
+import '../../features/home/presentation/screen/widgets/home_body.dart';
 import '../../features/on_boarding/presentation/screen/ui/on_boarding_screen.dart';
+import '../../features/payment/presentation/screen/ui/payment_screen.dart';
 import '../../features/splash/presentation/screen/ui/splash_screen.dart';
 import 'routes.dart';
 
@@ -56,7 +57,7 @@ class AppRouting {
         );
         case Routes.cartBody:
         return MaterialPageRoute(
-          builder: (_) => CartScreen(),
+          builder: (_) => CartBody(),
         );
         case Routes.favouriteBody:
         return MaterialPageRoute(
@@ -72,6 +73,10 @@ class AppRouting {
       case Routes.paymentScreen:
         return MaterialPageRoute(
           builder: (_) => PaymentScreen(),
+        );
+        case Routes.cartScreen:
+        return MaterialPageRoute(
+          builder: (_) => CartScreen(),
         );
       default:
         return MaterialPageRoute(

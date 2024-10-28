@@ -7,8 +7,8 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../../../core/widgets/custom_elevated_button.dart';
 import 'cart_listview.dart';
 
-class CartScreen extends StatelessWidget {
-  const CartScreen({super.key});
+class CartBody extends StatelessWidget {
+  const CartBody({super.key});
 
   @override
   Widget build(BuildContext context) {

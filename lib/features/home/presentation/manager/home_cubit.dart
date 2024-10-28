@@ -1,4 +1,4 @@
-import 'package:beauty_ecommerce/features/cart/presentation/screen/widgets/cart_screen.dart';
+import 'package:beauty_ecommerce/features/cart/presentation/screen/widgets/cart_body.dart';
 import 'package:beauty_ecommerce/features/favourite/presentation/screen/widgets/favourite_body.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/data/repo/home_repo.dart';
@@ -68,7 +68,7 @@ class HomeCubit extends Cubit<HomeState> {
   /// change between index in bottom navigation bar
 List<Widget> screens =[
   HomeBody(),
-CartScreen(),
+CartBody(),
   FavouriteBody(),
   ProfileScreen(),
 ];
