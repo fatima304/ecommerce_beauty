@@ -54,7 +54,7 @@ class DetailsCard extends StatelessWidget {
                 ),
                 CustomElevatedButton(
                     onPressed: (){
-                      Navigator.of(context).pushNamed(Routes.cartBody);
+                      Navigator.of(context).pushNamed(Routes.cartScreen);
                     },
                     width: 0.w,
                     height: 0.h,
