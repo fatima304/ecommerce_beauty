@@ -51,7 +51,9 @@ class DetailsCard extends StatelessWidget {
                   ],
                 ),
                 CustomElevatedButton(
-                    onPressed: (){},
+                    onPressed: (){
+
+                    },
                     width: 0.w,
                     height: 0.h,
                     buttonText: 'Add To Cart'
