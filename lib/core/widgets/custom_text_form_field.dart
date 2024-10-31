@@ -13,7 +13,7 @@ class CustomTextFormField extends StatelessWidget {
     this.fillColor,
     this.height,
     this.suffixIcon, this.hintStyle, this.onChanged, this.controller, this.onTap,
-
+    this.validator,
   });
 
   bool obscureText;
@@ -26,6 +26,7 @@ class CustomTextFormField extends StatelessWidget {
   final void Function(String)? onChanged;
   final TextEditingController? controller;
   final void Function()? onTap;
+  final  Function(String?)? validator;
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -34,6 +35,9 @@ class CustomTextFormField extends StatelessWidget {
           controller: controller,
           onChanged: onChanged,
           onTap:onTap ,
+          validator:(value) {
+            return validator!(value);
+          } ,
           decoration: InputDecoration(
             fillColor: fillColor ?? AppColor.lightGrey,
             filled: true,

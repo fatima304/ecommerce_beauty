@@ -128,4 +128,15 @@ class AppTextStyle{
       fontWeight: FontWeightHelper.medium,
       color: AppColor.mainPink
   );
+
+  static  TextStyle font24DarkGreyRegular= TextStyle(
+      fontSize: 24.sp ,
+      fontWeight: FontWeightHelper.regular ,
+      color: AppColor.darkGrey,
+  );
+  static  TextStyle font24PinkRegular= TextStyle(
+      fontSize: 24.sp ,
+      fontWeight: FontWeightHelper.regular ,
+      color: AppColor.mainPink,
+  );
 }
