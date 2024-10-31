@@ -35,7 +35,7 @@ class HomeCubit extends Cubit<HomeState> {
     var products = await homeRepo.getProduct(brand);
     products.fold(
       (error) {
-        emit(HomeBeautyProductFailed(error: error.apiErrorModel.message ?? ''));
+        emit(HomeBeautyProductFailed(error: error.message ?? ''));
       },
       (beautyProductList) {
         beautyProduct = beautyProductList;
@@ -57,7 +57,7 @@ class HomeCubit extends Cubit<HomeState> {
     );
     products.fold(
           (error) {
-        emit(HomeBeautyProductFailed(error: error.apiErrorModel.message ?? ''));
+        emit(HomeBeautyProductFailed(error: error.message ?? ''));
       },
           (beautyProductList) {
         emit(HomeBeautyProductSuccess(beautyProductList: beautyProductList));

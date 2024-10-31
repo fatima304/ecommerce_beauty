@@ -4,6 +4,7 @@ import 'package:beauty_ecommerce/features/favourite/presentation/screen/widgets/
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/presentation/manager/home_cubit.dart';
 import 'package:beauty_ecommerce/features/home/presentation/screen/ui/home_screen.dart';
+import 'package:beauty_ecommerce/features/login/presentation/manager/login_cubit.dart';
 import 'package:beauty_ecommerce/features/login/presentation/screen/ui/login_screen.dart';
 import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_boarding_cubit.dart';
 import 'package:beauty_ecommerce/features/details/presentation/screen/ui/details_screen.dart';
@@ -35,7 +36,10 @@ class AppRouting {
         );
       case Routes.loginScreen:
         return MaterialPageRoute(
-          builder: (_) => LoginScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<LoginCubit>(),
+            child: LoginScreen(),
+          ),
         );
       case Routes.registerScreen:
         return MaterialPageRoute(
