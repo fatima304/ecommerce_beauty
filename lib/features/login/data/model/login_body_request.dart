@@ -10,4 +10,6 @@ class LoginBodyRequest{
   LoginBodyRequest({required this.email, required this.password});
 
   Map<String,dynamic> toJson() => _$LoginBodyRequestToJson(this);
+
+  factory LoginBodyRequest.fromJson(Map<String,dynamic> json) =>_$LoginBodyRequestFromJson(json);
 }
