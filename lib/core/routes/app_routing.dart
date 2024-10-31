@@ -8,9 +8,10 @@ import 'package:beauty_ecommerce/features/login/presentation/screen/ui/login_scr
 import 'package:beauty_ecommerce/features/on_boarding/presentation/manager/on_boarding_cubit.dart';
 import 'package:beauty_ecommerce/features/details/presentation/screen/ui/details_screen.dart';
 import 'package:beauty_ecommerce/features/order_successful/presentation/screen/ui/order_successful_screen.dart';
+import 'package:beauty_ecommerce/features/register/presentation/manager/register_cubit.dart';
+import 'package:beauty_ecommerce/features/register/presentation/screen/ui/register_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../features/cart/presentation/screen/ui/cart_screen.dart';
 import '../../features/home/presentation/screen/widgets/home_body.dart';
 import '../../features/on_boarding/presentation/screen/ui/on_boarding_screen.dart';
 import '../../features/payment/presentation/screen/ui/payment_screen.dart';
@@ -38,7 +39,10 @@ class AppRouting {
         );
       case Routes.registerScreen:
         return MaterialPageRoute(
-          builder: (_) => LoginScreen(),
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<RegisterCubit>(),
+            child: RegisterScreen(),
+          ),
         );
       case Routes.orderSuccessfulScreen:
         return MaterialPageRoute(
@@ -55,11 +59,11 @@ class AppRouting {
         return MaterialPageRoute(
           builder: (_) => HomeBody(),
         );
-        case Routes.cartBody:
+      case Routes.cartBody:
         return MaterialPageRoute(
           builder: (_) => CartBody(),
         );
-        case Routes.favouriteBody:
+      case Routes.favouriteBody:
         return MaterialPageRoute(
           builder: (_) => FavouriteBody(),
         );
@@ -67,17 +71,20 @@ class AppRouting {
         return MaterialPageRoute(
           builder: (_) => BlocProvider(
             create: (context) => getIt<HomeCubit>(),
-            child: DetailsScreen(beautyProductModelResponse: arguments as BeautyProductModelResponse,),
+            child: DetailsScreen(
+              beautyProductModelResponse:
+                  arguments as BeautyProductModelResponse,
+            ),
           ),
         );
       case Routes.paymentScreen:
         return MaterialPageRoute(
           builder: (_) => PaymentScreen(),
         );
-        case Routes.cartScreen:
-        return MaterialPageRoute(
-          builder: (_) => CartScreen(),
-        );
+      // case Routes.cartScreen:
+      // return MaterialPageRoute(
+      //   builder: (_) => CartScreen(),
+      // );
       default:
         return MaterialPageRoute(
           builder: (_) => Scaffold(
