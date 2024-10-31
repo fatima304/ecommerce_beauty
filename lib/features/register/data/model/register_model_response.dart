@@ -9,4 +9,6 @@ class RegisterModelResponse{
   RegisterModelResponse({required this.message});
 
   factory RegisterModelResponse.fromJson(Map<String , dynamic> json) => _$RegisterModelResponseFromJson(json);
+
+  Map<String ,dynamic> toJson() => _$RegisterModelResponseToJson(this);
 }
