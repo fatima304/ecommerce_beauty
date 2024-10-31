@@ -9,3 +9,5 @@ abstract class LoginState {}
 
   LoginFailed({required this.error});
  }
+class LoginChangeObscurePassword extends LoginState {}
+

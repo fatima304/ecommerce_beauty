@@ -13,7 +13,7 @@ void showSnackBar({required BuildContext context , required String message , Col
           borderRadius: BorderRadius.circular(20) ,
         ),
         backgroundColor:AppColor.mainPink,
-        content: Text(message ,style: AppTextStyle.font22BlackBold,)
+        content: Text(message ,style: AppTextStyle.font18BlackSemiBold,)
     ),
   );
 }

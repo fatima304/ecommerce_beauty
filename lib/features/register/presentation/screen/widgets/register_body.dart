@@ -1,12 +1,12 @@
 import 'package:beauty_ecommerce/core/widgets/custom_snack_bar.dart';
 import 'package:beauty_ecommerce/features/register/presentation/manager/register_state.dart';
-import 'package:beauty_ecommerce/features/register/presentation/screen/widgets/register_textfield.dart';
+import 'package:beauty_ecommerce/features/register/presentation/screen/widgets/register_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../../core/routes/routes.dart';
 import '../../../../login/presentation/screen/widgets/auth_widget.dart';
-import '../../../../login/presentation/screen/widgets/custom_container.dart';
+import '../../../../../core/widgets/custom_container_auth.dart';
 import '../../manager/register_cubit.dart';
 
 class RegisterBody extends StatelessWidget {
@@ -19,6 +19,7 @@ class RegisterBody extends StatelessWidget {
         if(state is RegisterLoading){
           showSnackBar(context: context, message: 'Loading...');
         }else if(state is RegisterSuccess){
+          showSnackBar(context: context, message: state.registerModelResponse.message);
           Navigator.of(context).pushReplacementNamed(Routes.loginScreen);
         }else if(state is RegisterFailed){
           showSnackBar(context: context, message: state.error);
@@ -27,14 +28,18 @@ class RegisterBody extends StatelessWidget {
       },
       builder: (context, state) {
         return AuthWidget(
-          authBody: CustomContainer(
+          authBody: CustomContainerAuth(
             onPressed: () {
               validateThenSignUp(context);
             },
             welText: 'Register',
             buttonText: 'Sign Up',
             accountText: 'Create an account',
-            createAccount: 'Already have an account? Login',
+            account: 'Already have an account?',
+            loginOrRegister: 'Login',
+            onTap: (){
+              Navigator.of(context).pushNamed(Routes.loginScreen);
+            },
             authField: RegisterTextField(),
           ),
         );

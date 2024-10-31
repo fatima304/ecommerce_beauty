@@ -34,9 +34,22 @@ class RegisterCubit extends Cubit<RegisterState> {
       ),
     );
     response.fold((error) {
-      emit(RegisterFailed(error: error.error.toString()));
+      emit(RegisterFailed(error: error.message ?? ''));
     }, (register) {
-      emit(RegisterSuccess());
+      emit(RegisterSuccess(register));
     });
+  }
+
+  bool isObscurePassword = false ;
+
+  void changeObscurePassword(){
+    isObscurePassword = !isObscurePassword;
+    emit(RegisterChangeObscurePassword());
+  }
+  bool isObscureConfirmPassword = false ;
+
+  void changeObscureConfirmPassword(){
+    isObscureConfirmPassword = !isObscureConfirmPassword;
+    emit(RegisterChangeObscureConfirmPassword());
   }
 }

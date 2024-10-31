@@ -27,13 +27,20 @@ class LoginTextField extends StatelessWidget {
           CustomTextFormField(
             hintText: 'Password',
             prefixIcon: Icons.lock,
-            obscureText: false,
             controller: cubit.passwordController,
             validator: (value){
               if(value==null || value.isEmpty){
                 return "Enter your password";
               }
-            },
+            }, obscureText: cubit.isObscurePassword,
+              suffixIcon: IconButton(
+                onPressed: (){
+                  cubit.changeObscurePassword();
+                },
+                icon: Icon(
+                  cubit.isObscurePassword ? Icons.visibility_off : Icons.visibility,
+                ),
+              ),
           ),
         ],
       ),

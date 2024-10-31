@@ -6,7 +6,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 import 'auth_widget.dart';
-import 'custom_container.dart';
+import '../../../../../core/widgets/custom_container_auth.dart';
 import 'login_text_field.dart';
 
 class LoginBody extends StatelessWidget {
@@ -26,14 +26,18 @@ class LoginBody extends StatelessWidget {
       },
       builder: (context, state) {
         return AuthWidget(
-          authBody: CustomContainer(
+          authBody: CustomContainerAuth(
             onPressed: () {
               validateThenLogin(context);
             },
             welText: 'Welcome Back!',
             buttonText: 'LOGIN',
             accountText: 'Login to your account',
-            createAccount: 'Don\'t have an account? Sign up',
+            account: 'Don\'t have an account?',
+            loginOrRegister: 'SignUp',
+            onTap: (){
+              Navigator.of(context).pushNamed(Routes.registerScreen);
+            },
             authField: LoginTextField(),
           ),
         );

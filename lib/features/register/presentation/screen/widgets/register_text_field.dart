@@ -2,6 +2,7 @@ import 'package:beauty_ecommerce/core/widgets/custom_text_form_field.dart';
 import 'package:beauty_ecommerce/features/register/presentation/manager/register_cubit.dart';
 import 'package:flutter/material.dart';
 
+
 class RegisterTextField extends StatelessWidget {
   const RegisterTextField({super.key});
 
@@ -13,10 +14,6 @@ class RegisterTextField extends StatelessWidget {
       key: cubit.formKey,
       child: Column(
         children: [
-          // CustomTextFormField(
-          //   hintText: 'Full Name',
-          //   prefixIcon: Icons.person,
-          // ),
           CustomTextFormField(
             hintText: 'Email',
             prefixIcon: Icons.email,
@@ -36,6 +33,15 @@ class RegisterTextField extends StatelessWidget {
                 return 'Enter valid password';
               }
             },
+            obscureText: cubit.isObscurePassword,
+            suffixIcon: IconButton(
+              onPressed: (){
+                cubit.changeObscurePassword();
+              },
+              icon: Icon(
+                cubit.isObscurePassword ? Icons.visibility_off : Icons.visibility,
+              ),
+            ),
           ),
           CustomTextFormField(
             hintText: 'Confirm Password',
@@ -46,6 +52,15 @@ class RegisterTextField extends StatelessWidget {
                 return 'Confirm password should be ass password ';
               }
             },
+            obscureText: cubit.isObscureConfirmPassword,
+            suffixIcon: IconButton(
+              onPressed: (){
+                cubit.changeObscureConfirmPassword();
+              },
+              icon: Icon(
+                cubit.isObscureConfirmPassword ? Icons.visibility_off : Icons.visibility,
+              ),
+            ),
           ),
         ],
       ),
