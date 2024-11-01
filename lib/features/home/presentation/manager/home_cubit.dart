@@ -35,7 +35,7 @@ class HomeCubit extends Cubit<HomeState> {
     var products = await homeRepo.getProduct(brand);
     products.fold(
       (error) {
-        emit(HomeBeautyProductFailed(error: error.apiErrorModel.message ?? ''));
+        emit(HomeBeautyProductFailed(error: error.message ?? ''));
       },
       (beautyProductList) {
         beautyProduct = beautyProductList;
@@ -57,7 +57,7 @@ class HomeCubit extends Cubit<HomeState> {
     );
     products.fold(
           (error) {
-        emit(HomeBeautyProductFailed(error: error.apiErrorModel.message ?? ''));
+        emit(HomeBeautyProductFailed(error: error.message ?? ''));
       },
           (beautyProductList) {
         emit(HomeBeautyProductSuccess(beautyProductList: beautyProductList));
@@ -66,36 +66,53 @@ class HomeCubit extends Cubit<HomeState> {
   }
 
   /// change between index in bottom navigation bar
-List<Widget> screens =[
+  List<Widget> screens =[
   HomeBody(),
 CartBody(),
   FavouriteBody(),
   ProfileScreen(),
 ];
-
-
   int screenIndex = 0 ;
-
   void changScreen(int index){
     screenIndex = index;
     if (index == 0) {
       getProductByBrand(brandNames[currentIndex]);
+    } else if (index == 1) {
+      emit(HomeCartProductSuccess(cartProductList: cartProducts));
     }
+
     emit(HomeChangeScreenIndex());
   }
 
 
-  /// make item favourite
-  bool isFav = false ;
-  List<BeautyProductModelResponse> favProduct =[] ;
-  void changeFav(BeautyProductModelResponse product){
-    isFav = !isFav;
-   if(isFav){
-     favProduct.add(product);
-   }else{
-     favProduct.remove(product);
-   }
+   /// make item favourite
+   Set<BeautyProductModelResponse> favoriteProduct={};
+  void changeFav(BeautyProductModelResponse product) {
+    if (favoriteProduct.contains(product)) {
+      favoriteProduct.remove(product);
+    } else {
+      favoriteProduct.add(product);
+    }
     emit(HomeBeautyProductSuccess(beautyProductList: beautyProduct));
+  }
+  bool isFavorite(BeautyProductModelResponse product) {
+    return favoriteProduct.contains(product);
+  }
+
+  /// add item from details in cart screen
+  List<BeautyProductModelResponse> cartProducts =[] ;
+  void addToCart(BeautyProductModelResponse product){
+    emit(HomeBeautyProductLoading());
+    try {
+      if(!cartProducts.contains(product)){
+        cartProducts.add(product);
+      }else{
+        cartProducts.remove(product);
+      }
+      emit(HomeCartProductSuccess(cartProductList: cartProducts));
+    }catch (error) {
+      emit(HomeCartProductFailed(error: error.toString()));
+    }
 
   }
 
