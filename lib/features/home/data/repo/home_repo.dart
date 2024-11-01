@@ -21,7 +21,7 @@ class HomeRepo{
     }
   }
 
-  Future<Either<ApiErrorModel , List<BeautyProductModelResponse>>> searchUsingProductType (Map<String , dynamic> queries)async{
+  Future<Either<ApiErrorModel, List<BeautyProductModelResponse>>> searchUsingProductType (Map<String , dynamic> queries)async{
     try{
       List<BeautyProductModelResponse> beautyProducts = await _apiMakeupServices.searchUsingProductType(queries);
       return Right(beautyProducts);

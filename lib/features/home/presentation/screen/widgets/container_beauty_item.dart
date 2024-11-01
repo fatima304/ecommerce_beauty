@@ -1,8 +1,8 @@
-import 'package:beauty_ecommerce/core/helper/app_images.dart';
 import 'package:beauty_ecommerce/core/routes/routes.dart';
 import 'package:beauty_ecommerce/core/theme/app_color.dart';
 import 'package:beauty_ecommerce/core/theme/app_text_style.dart';
 import 'package:beauty_ecommerce/core/theme/font_family_helper.dart';
+import 'package:beauty_ecommerce/core/widgets/custom_image_network.dart';
 import 'package:beauty_ecommerce/features/home/data/model/beauty_product_model_response.dart';
 import 'package:beauty_ecommerce/features/home/presentation/manager/home_cubit.dart';
 import 'package:flutter/material.dart';
@@ -16,7 +16,7 @@ class ContainerBeautyItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var homeCubit = HomeCubit.get(context);
-    bool isFav = homeCubit.favProduct.contains(beautyProductModel);
+    bool isFav =homeCubit.isFavorite(beautyProductModel);
     return Padding(
       padding: EdgeInsets.symmetric(vertical: 8.h),
       child: Container(
@@ -37,20 +37,8 @@ class ContainerBeautyItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Center(
-              child: Image.network(
-                beautyProductModel.imageLink ?? AppImages.makeupFake,
-                width: 150.w,
-                height: 120.h,
-                errorBuilder: (context, error, stackTrace) {
-                  // Display a default image in case of an error
-                  return Image.network(
-                    AppImages.makeupFake,
-                    width: 150.w,
-                    height: 120.h,
-                  );
-                },
+              child: CustomImageNetwork(imagePath: beautyProductModel.imageLink)
               ),
-            ),
             Spacer(),
             Text(
               beautyProductModel.name
@@ -61,6 +49,7 @@ class ContainerBeautyItem extends StatelessWidget {
               softWrap: false,
               style: AppTextStyle.font22BlackSemiBold.copyWith(
                 fontFamily: FontFamilyHelper.leagueSpartanFont,
+                fontSize: 20,
               ),
             ),
             Text(
@@ -81,8 +70,10 @@ class ContainerBeautyItem extends StatelessWidget {
                         arguments: beautyProductModel);
                   },
                   child: Container(
+                    width: 130,
+                    height: 45,
                     padding:
-                    EdgeInsets.symmetric(horizontal: 9.w, vertical: 5.h),
+                        EdgeInsets.symmetric(horizontal: 9.w, vertical: 5.h),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: AppColor.mainPink,
@@ -103,7 +94,7 @@ class ContainerBeautyItem extends StatelessWidget {
                   child: CircleAvatar(
                     backgroundColor: AppColor.cherryBlossomPink,
                     child: Icon(
-                       isFav ? Icons.favorite : Icons.favorite_border,
+                      isFav ? Icons.favorite : Icons.favorite_border,
                       size: 30,
                       color: isFav ? Colors.red : Colors.black,
                     ),
